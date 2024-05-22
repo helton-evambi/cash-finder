@@ -1,13 +1,15 @@
 import { Image, SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-import { Logo } from './assets'
-import { CustomButton, CustomInput } from './components'
-import AtmCard from './components/atm-card'
+
+import { CustomButton, CustomInput } from '../../../components'
 
 const Login = () => {
   return (
     <SafeAreaView style={styles.body}>
-      <AtmCard />
+      <CustomInput placeholder="telefone" />
+      <CustomInput placeholder="senha" />
+      <CustomButton title="Entrar" />
+      <Text>Ainda nao tenho uma conta</Text>
     </SafeAreaView>
   )
 }
