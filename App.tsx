@@ -17,7 +17,7 @@ export default function App() {
           component={Login}
           options={{ headerShown: false }}
         />
-        {/* <Stack.Screen name="Details" component={DetailsScreen} /> */}
+        {/*<Stack.Screen name="Details" component={DetailsScreen} />*/}
       </Stack.Navigator>
     </NavigationContainer>
   )
