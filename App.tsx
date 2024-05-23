@@ -6,6 +6,7 @@ import { CustomButton, CustomInput } from './components'
 import AtmCard from './components/atm-card'
 import { NavigationContainer } from '@react-navigation/native'
 import Login from './screen/auth/login'
+import Home from './screen/home'
 
 const Stack = createNativeStackNavigator()
 export default function App() {
@@ -14,7 +15,7 @@ export default function App() {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
-          component={Login}
+          component={Home}
           options={{ headerShown: false }}
         />
         {/* <Stack.Screen name="Details" component={DetailsScreen} /> */}
