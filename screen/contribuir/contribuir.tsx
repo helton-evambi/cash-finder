@@ -7,48 +7,107 @@ import {
   View,
 } from 'react-native'
 import React from 'react'
-
-import { CustomButton, CustomInput } from '../../components'
+import { useState } from 'react'
 import { colorPallet } from '../../constants/colors'
 import TabMenu from '../../components/tab-manu'
 import AtmCard from '../../components/atm-card'
 
 const Contribuir = () => {
+  const [system, setSystem] = useState<boolean>(false)
+  const [money, setMoney] = useState<boolean>(false)
+  const [paper, setPaper] = useState<boolean>(false)
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.body}>
         <Text style={styles.nomeApp}>Cash Finder</Text>
         <Text style={styles.texto}>Os mais próximos de si</Text>
         <View style={styles.cardAtm}>
-          <AtmCard />
-          <AtmCard />
-          <AtmCard />
-          <AtmCard />
+          <AtmCard location="Belas" />
+          <AtmCard location="Kilamba" />
+          <AtmCard location="Camama" />
+          <AtmCard location="Talatona" />
         </View>
         <Text style={styles.texto}>tem sistema?</Text>
         <View style={styles.caixas}>
-          <TouchableOpacity style={styles.bloco}>
+          <TouchableOpacity
+            style={[
+              styles.bloco,
+              {
+                borderColor: system
+                  ? colorPallet.primary
+                  : colorPallet.secondary,
+              },
+            ]}
+            onPress={() => setSystem(true)}
+          >
             <Text>Sim</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.bloco}>
+          <TouchableOpacity
+            style={[
+              styles.bloco,
+              {
+                borderColor: system
+                  ? colorPallet.secondary
+                  : colorPallet.primary,
+              },
+            ]}
+            onPress={() => setSystem(false)}
+          >
             <Text>Não</Text>
           </TouchableOpacity>
         </View>
         <Text style={styles.texto}>Tem dinheiro?</Text>
         <View style={styles.caixas}>
-          <TouchableOpacity style={styles.bloco}>
+          <TouchableOpacity
+            style={[
+              styles.bloco,
+              {
+                borderColor: money
+                  ? colorPallet.primary
+                  : colorPallet.secondary,
+              },
+            ]}
+            onPress={() => setSystem(false)}
+          >
             <Text>Sim</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.bloco}>
+          <TouchableOpacity
+            style={[
+              styles.bloco,
+              {
+                borderColor: money
+                  ? colorPallet.secondary
+                  : colorPallet.primary,
+              },
+            ]}
+          >
             <Text>Não</Text>
           </TouchableOpacity>
         </View>
         <Text style={styles.texto}>Tem papel?</Text>
         <View style={styles.caixas}>
-          <TouchableOpacity style={styles.bloco}>
+          <TouchableOpacity
+            style={[
+              styles.bloco,
+              {
+                borderColor: paper
+                  ? colorPallet.primary
+                  : colorPallet.secondary,
+              },
+            ]}
+          >
             <Text>Sim</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.bloco}>
+          <TouchableOpacity
+            style={[
+              styles.bloco,
+              {
+                borderColor: paper
+                  ? colorPallet.secondary
+                  : colorPallet.primary,
+              },
+            ]}
+          >
             <Text>Não</Text>
           </TouchableOpacity>
         </View>
@@ -101,7 +160,6 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     backgroundColor: colorPallet.primaryLight,
     borderWidth: 1,
-    borderColor: colorPallet.secondary,
     height: 69,
     width: 71,
     marginRight: 19,
