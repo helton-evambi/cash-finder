@@ -7,22 +7,37 @@ import {
 } from 'react-native'
 import React, { SVGProps } from 'react'
 import { colorPallet } from '../constants/colors'
+import { NavigationProp, useNavigation } from '@react-navigation/native'
 
 type Props = {
   title: string
   total: number
   icon: any
+  iconName?: string
 } & TouchableOpacityProps
 
-const HomeCard = ({ title, total, icon: Icon }: Props) => {
+type RootStackParamList = {
+  Home: undefined
+  Login: undefined
+  Contribuir: undefined
+  Pesquisar: undefined
+  AtmList: undefined
+}
+
+const HomeCard = ({ title, total, icon: Icon, iconName }: Props) => {
+  const navigation = useNavigation<NavigationProp<RootStackParamList>>()
   return (
-    <TouchableOpacity style={styles.body}>
-      <Icon color={colorPallet.primaryLight} size={40} />
+    <TouchableOpacity
+      style={styles.body}
+      onPress={() => navigation.navigate('AtmList')}
+    >
+      <Icon name={iconName} color={colorPallet.primaryLight} size={40} />
       <Text
         style={{
           color: colorPallet.primaryLight,
           fontSize: 14,
           fontWeight: 600,
+          textAlign: 'center',
         }}
       >
         {title}
