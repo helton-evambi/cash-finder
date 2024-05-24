@@ -3,7 +3,11 @@ import React from 'react'
 import { Entypo } from '@expo/vector-icons'
 import { colorPallet } from '../constants/colors'
 
-const AtmCard = () => {
+type Prop = {
+  location: string
+}
+
+const AtmCard = ({ location }: Prop) => {
   return (
     <View
       style={{
@@ -20,7 +24,7 @@ const AtmCard = () => {
     >
       <Entypo name="location" size={25} color={colorPallet.primary} />
 
-      <Text style={{ fontSize: 12, fontWeight: '500' }}>Belas</Text>
+      <Text style={{ fontSize: 12, fontWeight: '500' }}>{location}</Text>
     </View>
   )
 }

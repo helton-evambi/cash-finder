@@ -33,10 +33,10 @@ const AtmsList = () => {
             Os mais próximos de si
           </Text>
           <View style={styles.cardAtm}>
-            <AtmCard />
-            <AtmCard />
-            <AtmCard />
-            <AtmCard />
+            <AtmCard location="Belas" />
+            <AtmCard location="Kilamba" />
+            <AtmCard location="Camama" />
+            <AtmCard location="Talatona" />
           </View>
           <Text style={{ marginTop: 40, fontWeight: 600, fontSize: 16 }}>
             Contribua com informações
