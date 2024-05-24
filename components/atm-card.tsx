@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
-
-import { MapPinIcon } from 'react-native-heroicons/solid'
+import { Entypo } from '@expo/vector-icons'
 import { colorPallet } from '../constants/colors'
 
 const AtmCard = () => {
@@ -19,9 +18,8 @@ const AtmCard = () => {
         width: 80,
       }}
     >
-      <MapPinIcon
-        style={{ height: 25, width: 25, color: colorPallet.primary }}
-      />
+      <Entypo name="location" size={25} color={colorPallet.primary} />
+
       <Text style={{ fontSize: 12, fontWeight: '500' }}>Belas</Text>
     </View>
   )
