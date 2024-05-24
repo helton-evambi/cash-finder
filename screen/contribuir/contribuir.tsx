@@ -11,6 +11,7 @@ import React from 'react'
 import { CustomButton, CustomInput } from '../../components'
 import { colorPallet } from '../../constants/colors'
 import TabMenu from '../../components/tab-manu'
+import AtmCard from '../../components/atm-card'
 
 const Contribuir = () => {
   return (
@@ -18,19 +19,11 @@ const Contribuir = () => {
       <View style={styles.body}>
         <Text style={styles.nomeApp}>Cash Finder</Text>
         <Text style={styles.texto}>Os mais próximos de si</Text>
-        <View style={styles.caixas}>
-          <TouchableOpacity style={styles.bloco}>
-            <Text>Belas</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.bloco}>
-            <Text>Belas</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.bloco}>
-            <Text>Belas</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.bloco}>
-            <Text>Sim</Text>
-          </TouchableOpacity>
+        <View style={styles.cardAtm}>
+          <AtmCard />
+          <AtmCard />
+          <AtmCard />
+          <AtmCard />
         </View>
         <Text style={styles.texto}>tem sistema?</Text>
         <View style={styles.caixas}>
@@ -79,12 +72,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'white',
   },
-  rodape: {
-    width: '100%',
-    height: 79,
-    backgroundColor: '#D9D9D9',
-    marginTop: 98,
-  },
+
   nomeApp: {
     fontSize: 16,
     marginTop: 33,
@@ -96,6 +84,11 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     fontWeight: 'bold',
   },
+  cardAtm: {
+    marginTop: 12,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   caixas: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -105,8 +98,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     textAlign: 'center',
-    borderRadius: 5,
+    borderRadius: 8,
     backgroundColor: colorPallet.primaryLight,
+    borderWidth: 1,
+    borderColor: colorPallet.secondary,
     height: 69,
     width: 71,
     marginRight: 19,
