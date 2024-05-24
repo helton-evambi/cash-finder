@@ -8,28 +8,22 @@ import {
 import React, { SVGProps } from 'react'
 import { colorPallet } from '../constants/colors'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
+import { RootStackParamList } from '../types/navigation'
 
 type Props = {
   title: string
   total: number
   icon: any
   iconName?: string
+  atmQuery: 'all' | 'money' | 'paper' | 'system'
 } & TouchableOpacityProps
 
-type RootStackParamList = {
-  Home: undefined
-  Login: undefined
-  Contribuir: undefined
-  Pesquisar: undefined
-  AtmList: undefined
-}
-
-const HomeCard = ({ title, total, icon: Icon, iconName }: Props) => {
+const HomeCard = ({ title, total, icon: Icon, iconName, atmQuery }: Props) => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>()
   return (
     <TouchableOpacity
       style={styles.body}
-      onPress={() => navigation.navigate('AtmList')}
+      onPress={() => navigation.navigate('AtmList', { query: atmQuery })}
     >
       <Icon name={iconName} color={colorPallet.primaryLight} size={40} />
       <Text

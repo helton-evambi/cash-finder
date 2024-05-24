@@ -4,13 +4,7 @@ import { MaterialIcons } from '@expo/vector-icons'
 import React from 'react'
 import { colorPallet } from '../constants/colors'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
-
-type RootStackParamList = {
-  Home: undefined
-  Login: undefined
-  Contribuir: undefined
-  Pesquisar: undefined
-}
+import { RootStackParamList } from '../types/navigation'
 
 const TabMenu = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>()

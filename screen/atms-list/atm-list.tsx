@@ -6,21 +6,24 @@ import { CustomButton } from '../../components'
 import HomeCard from '../../components/home-card'
 import { CircleStackIcon } from 'react-native-heroicons/outline'
 import TabMenu from '../../components/tab-manu'
-import { NavigationProp, useNavigation } from '@react-navigation/native'
+import {
+  NavigationProp,
+  RouteProp,
+  useNavigation,
+  useRoute,
+} from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import AtmCardList from '../../components/atm-card-list'
+import { RootStackParamList } from '../../types/navigation'
 
-type RootStackParamList = {
-  Home: undefined
-  Login: undefined
-  Contribuir: undefined
-  Pesquisar: undefined
-}
+type AtmListRouteProp = RouteProp<RootStackParamList, 'AtmList'>
 
 const AtmsList = () => {
-  const navigation = useNavigation<NavigationProp<RootStackParamList>>()
+  const route = useRoute<AtmListRouteProp>()
+  const { query } = route.params
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <ScrollView>
@@ -39,37 +42,99 @@ const AtmsList = () => {
             Contribua com informações
           </Text>
 
-          <View>
-            <AtmCardList
-              title="Banco Sol"
-              location="Golfe 2"
-              money={true}
-              paper={true}
-              system={true}
-            />
-            <AtmCardList
-              title="BFA"
-              location="Camama"
-              money={false}
-              paper={false}
-              system={false}
-            />
-            <AtmCardList
-              title="BIC"
-              location="Kilamba"
-              money={false}
-              paper={true}
-              system={true}
-            />
+          {query === 'all' && (
+            <View>
+              <AtmCardList
+                title="Banco Sol"
+                location="Golfe 2"
+                money={true}
+                paper={true}
+                system={true}
+              />
+              <AtmCardList
+                title="BFA"
+                location="Camama"
+                money={false}
+                paper={false}
+                system={false}
+              />
+              <AtmCardList
+                title="BIC"
+                location="Kilamba"
+                money={false}
+                paper={true}
+                system={true}
+              />
 
-            <AtmCardList
-              title="Banco Sol"
-              location="Kilamba"
-              money={true}
-              paper={true}
-              system={true}
-            />
-          </View>
+              <AtmCardList
+                title="Banco Sol"
+                location="Kilamba"
+                money={true}
+                paper={true}
+                system={true}
+              />
+            </View>
+          )}
+
+          {query === 'money' && (
+            <View>
+              <AtmCardList
+                title="Banco Sol"
+                location="Golfe 2"
+                money={true}
+                paper={true}
+                system={true}
+              />
+
+              <AtmCardList
+                title="Banco Sol"
+                location="Kilamba"
+                money={true}
+                paper={true}
+                system={true}
+              />
+            </View>
+          )}
+
+          {query === 'paper' && (
+            <View>
+              <AtmCardList
+                title="Banco Sol"
+                location="Golfe 2"
+                money={true}
+                paper={true}
+                system={true}
+              />
+
+              <AtmCardList
+                title="BIC"
+                location="Kilamba"
+                money={false}
+                paper={true}
+                system={true}
+              />
+
+              <AtmCardList
+                title="Banco Sol"
+                location="Kilamba"
+                money={true}
+                paper={true}
+                system={true}
+              />
+            </View>
+          )}
+
+          {query === 'system' && (
+            <View>
+              <AtmCardList
+                title="BFA"
+                location="Camama"
+                money={false}
+                paper={false}
+                system={false}
+              />
+            </View>
+          )}
         </View>
       </ScrollView>
 

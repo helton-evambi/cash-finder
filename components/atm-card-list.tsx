@@ -5,14 +5,14 @@ import {
   TouchableOpacity,
   StyleSheet,
 } from 'react-native'
-import React, { SVGProps } from 'react'
+import React from 'react'
 import { colorPallet } from '../constants/colors'
 import { FontAwesome } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
 import { MaterialCommunityIcons } from '@expo/vector-icons'
 import { Entypo } from '@expo/vector-icons'
-import { AntDesign } from '@expo/vector-icons'
 import { NavigationProp, useNavigation } from '@react-navigation/native'
+import { RootStackParamList } from '../types/navigation'
 
 type Props = {
   title: string
@@ -21,14 +21,6 @@ type Props = {
   paper: boolean
   system: boolean
 } & TouchableOpacityProps
-
-type RootStackParamList = {
-  Home: undefined
-  Login: undefined
-  Contribuir: undefined
-  Pesquisar: undefined
-  AtmList: undefined
-}
 
 const AtmCardList = ({ title, location, money, paper, system }: Props) => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>()

@@ -10,14 +10,7 @@ import { NavigationProp, useNavigation } from '@react-navigation/native'
 import { AntDesign } from '@expo/vector-icons'
 import { FontAwesome } from '@expo/vector-icons'
 import { Ionicons } from '@expo/vector-icons'
-
-type RootStackParamList = {
-  Home: undefined
-  Login: undefined
-  Contribuir: undefined
-  Pesquisar: undefined
-  AtmList: undefined
-}
+import { RootStackParamList } from '../../types/navigation'
 
 const Home = () => {
   const navigation = useNavigation<NavigationProp<RootStackParamList>>()
@@ -41,7 +34,7 @@ const Home = () => {
         <View style={{ marginVertical: 20 }}>
           <CustomButton
             title="Contribuir"
-            onPress={() => navigation.navigate('AtmList')}
+            onPress={() => navigation.navigate('AtmList', { query: 'all' })}
           />
         </View>
         <View style={styles.homeCard}>
@@ -50,24 +43,28 @@ const Home = () => {
             total={4}
             icon={AntDesign}
             iconName="database"
+            atmQuery="all"
           />
           <HomeCard
             title="Total de Caixas com Dinheiro"
             total={2}
             icon={FontAwesome}
             iconName="money"
+            atmQuery="money"
           />
           <HomeCard
             title="Total de Caixas com Papel"
             total={3}
             icon={Ionicons}
             iconName="newspaper-outline"
+            atmQuery="paper"
           />
           <HomeCard
             title="Total de Caixas sem Sistema"
             total={1}
             icon={Ionicons}
             iconName="close-circle-outline"
+            atmQuery="system"
           />
         </View>
       </View>
